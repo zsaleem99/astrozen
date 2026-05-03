@@ -1,0 +1,236 @@
+---
+import Section from "./Section.astro";
+import type { ListingProps } from "@types";
+
+interface Props {
+  listings: ListingProps[];
+}
+
+const { listings } = Astro.props;
+
+const typeIcons: Record<string, string> = {
+  Office: "🏢",
+  Industrial: "🏭",
+  Retail: "🏪",
+  "Mixed-Use": "🏙️",
+  Land: "🌍",
+};
+---
+
+<Section text="Current Listings" href="listings">
+  <p class="mb-10 -mt-6 max-w-2xl text-base text-neutral">
+    A selection of current on-market commercial properties available for lease
+    and sale. Contact us to arrange inspections or receive full information packs.
+  </p>
+
+  <!-- On-market listings grid -->
+  <div class="mb-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      listings.map((listing) => (
+        <div class="flex flex-col rounded-2xl border border-border bg-card overflow-hidden transition-colors duration-200 hover:border-primary/30">
+          <!-- Property type header -->
+          <div class="flex items-center justify-between bg-border/40 px-5 py-3">
+            <div class="flex items-center gap-2">
+              <span class="text-lg">{typeIcons[listing.type] ?? "🏢"}</span>
+              <span class="text-xs font-semibold uppercase tracking-widest text-neutral">
+                {listing.type}
+              </span>
+            </div>
+            <span
+              class={`rounded-full px-3 py-1 text-xs font-medium ${
+                listing.status === "available"
+                  ? "bg-emerald-900/40 text-emerald-400"
+                  : "bg-amber-900/40 text-amber-400"
+              }`}
+            >
+              {listing.status === "available" ? "Available" : "Under Offer"}
+            </span>
+          </div>
+
+          <!-- Property details -->
+          <div class="flex flex-1 flex-col p-6">
+            <h3 class="mb-1 font-serif text-lg font-semibold text-white">
+              {listing.name}
+            </h3>
+            <p class="mb-4 text-sm text-neutral">{listing.address}</p>
+
+            <div class="mb-6 flex gap-6">
+              <div>
+                <p class="text-xs text-neutral/70">Size</p>
+                <p class="text-sm font-medium text-white">{listing.size}</p>
+              </div>
+              <div>
+                <p class="text-xs text-neutral/70">Asking Rent</p>
+                <p class="text-sm font-medium text-primary">{listing.price}</p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              data-modal-target="listing-modal"
+              data-service={`Listing enquiry — ${listing.name}`}
+              class="mt-auto inline-flex w-full items-center justify-center rounded-full border border-primary/40 px-5 py-2.5 text-sm font-medium text-primary transition-all duration-200 hover:border-primary hover:bg-primary hover:text-black"
+            >
+              Enquire Now
+            </button>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+
+  <!-- Off-market listings — gated section -->
+  <div
+    class="relative overflow-hidden rounded-2xl border border-primary/20 bg-card"
+  >
+    <!-- Blurred placeholder content -->
+    <div class="pointer-events-none select-none p-8 opacity-30 blur-sm" aria-hidden="true">
+      <div class="mb-4 grid grid-cols-3 gap-4">
+        {[1, 2, 3].map(() => (
+          <div class="rounded-xl border border-border bg-border/40 p-5">
+            <div class="mb-2 h-3 w-1/2 rounded bg-neutral/30" />
+            <div class="mb-4 h-4 w-3/4 rounded bg-white/20" />
+            <div class="h-3 w-1/3 rounded bg-neutral/30" />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Lock overlay -->
+    <div
+      class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 p-8 text-center backdrop-blur-[2px]"
+    >
+      <div
+        class="mb-4 flex h-14 w-14 items-center justify-center rounded-full border border-primary/40 text-2xl"
+      >
+        🔒
+      </div>
+      <h3 class="mb-2 font-serif text-2xl font-bold text-white">
+        Off-Market Listings
+      </h3>
+      <p class="mb-6 max-w-sm text-sm text-neutral">
+        We maintain an exclusive portfolio of off-market commercial
+        opportunities not publicly advertised. Request access to receive
+        details directly.
+      </p>
+      <button
+        type="button"
+        data-modal-target="offmarket-modal"
+        class="inline-block rounded-full bg-primary px-8 py-3 text-sm font-semibold text-black transition-colors hover:bg-primary-dark"
+      >
+        Request Off-Market Access
+      </button>
+    </div>
+  </div>
+</Section>
+
+<!-- Listing enquiry modal (on-market) -->
+<div id="listing-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="Listing enquiry">
+  <div class="relative w-full max-w-lg rounded-2xl border border-border bg-card p-8 shadow-2xl">
+    <button
+      type="button"
+      data-modal-close
+      class="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full text-neutral transition-colors hover:bg-border hover:text-white"
+      aria-label="Close"
+    >✕</button>
+
+    <h3 class="mb-1 font-serif text-2xl font-bold text-white">Listing Enquiry</h3>
+    <p class="mb-6 text-sm text-neutral">
+      We'll send you the full information pack and arrange an inspection.
+    </p>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+      <input type="hidden" name="service" value="" />
+      <input type="hidden" name="_subject" value="Listing Enquiry — NAI Advent" />
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label class="form-label" for="l-name">Full Name *</label>
+          <input class="form-input" type="text" id="l-name" name="name" placeholder="John Smith" required />
+        </div>
+        <div>
+          <label class="form-label" for="l-company">Company</label>
+          <input class="form-input" type="text" id="l-company" name="company" placeholder="Acme Holdings" />
+        </div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label class="form-label" for="l-email">Email Address *</label>
+          <input class="form-input" type="email" id="l-email" name="email" placeholder="john@example.com" required />
+        </div>
+        <div>
+          <label class="form-label" for="l-phone">Phone Number</label>
+          <input class="form-input" type="tel" id="l-phone" name="phone" placeholder="+27 21 000 0000" />
+        </div>
+      </div>
+      <div>
+        <label class="form-label" for="l-message">Message</label>
+        <textarea class="form-input min-h-[90px] resize-y" id="l-message" name="message" placeholder="Any specific requirements or questions?"></textarea>
+      </div>
+      <button type="submit" class="w-full rounded-full bg-primary py-3 text-sm font-semibold text-black transition-colors hover:bg-primary-dark">
+        Send Enquiry
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Off-market access modal -->
+<div id="offmarket-modal" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-label="Request off-market access">
+  <div class="relative w-full max-w-lg rounded-2xl border border-border bg-card p-8 shadow-2xl">
+    <button
+      type="button"
+      data-modal-close
+      class="absolute right-5 top-5 flex h-8 w-8 items-center justify-center rounded-full text-neutral transition-colors hover:bg-border hover:text-white"
+      aria-label="Close"
+    >✕</button>
+
+    <h3 class="mb-1 font-serif text-2xl font-bold text-white">Off-Market Access</h3>
+    <p class="mb-6 text-sm text-neutral">
+      Tell us what you're looking for and we'll match you against our private
+      off-market inventory.
+    </p>
+
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4">
+      <input type="hidden" name="_subject" value="Off-Market Access Request — NAI Advent" />
+
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label class="form-label" for="om-name">Full Name *</label>
+          <input class="form-input" type="text" id="om-name" name="name" placeholder="John Smith" required />
+        </div>
+        <div>
+          <label class="form-label" for="om-company">Company</label>
+          <input class="form-input" type="text" id="om-company" name="company" placeholder="Acme Holdings" />
+        </div>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label class="form-label" for="om-email">Email Address *</label>
+          <input class="form-input" type="email" id="om-email" name="email" placeholder="john@example.com" required />
+        </div>
+        <div>
+          <label class="form-label" for="om-phone">Phone Number</label>
+          <input class="form-input" type="tel" id="om-phone" name="phone" placeholder="+27 21 000 0000" />
+        </div>
+      </div>
+      <div>
+        <label class="form-label" for="om-type">Property Type Interest</label>
+        <select class="form-input" id="om-type" name="property_type">
+          <option value="">Any</option>
+          <option value="Office">Office</option>
+          <option value="Industrial">Industrial</option>
+          <option value="Retail">Retail</option>
+          <option value="Mixed-Use">Mixed-Use</option>
+          <option value="Land">Land</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label" for="om-message">Requirements</label>
+        <textarea class="form-input min-h-[90px] resize-y" id="om-message" name="message" placeholder="Size, location, budget, timeline..."></textarea>
+      </div>
+      <button type="submit" class="w-full rounded-full bg-primary py-3 text-sm font-semibold text-black transition-colors hover:bg-primary-dark">
+        Request Access
+      </button>
+    </form>
+  </div>
+</div>

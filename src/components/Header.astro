@@ -1,24 +1,22 @@
 ---
 import Menu from "@icons/Menu.astro";
-import { Image } from "astro:assets";
 import type { HeaderProps } from "@types";
 
 type Props = HeaderProps;
 
-const { siteLogo, navLinks } = Astro.props;
+const { navLinks } = Astro.props;
 ---
 
 <header
-  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+  class="sticky top-0 z-50 mx-auto flex max-w-6xl animate-slide-in items-center justify-between bg-black/95 px-5 py-4 backdrop-blur-sm"
 >
-  <a href="/" aria-label="Home link">
-    <Image
-      class="rounded-full"
-      src={siteLogo}
-      width="45"
-      height="45"
-      alt="website logo"
-    />
+  <a href="/" aria-label="Home" class="flex flex-col leading-none">
+    <span class="font-serif text-lg font-bold tracking-tight text-white"
+      >NAI Advent</span
+    >
+    <span class="text-xs font-medium tracking-widest text-primary uppercase"
+      >Zohair Saleem</span
+    >
   </a>
 
   <button
@@ -32,15 +30,15 @@ const { siteLogo, navLinks } = Astro.props;
   </button>
 
   <nav
-    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
+    class="absolute top-[4.5rem] right-5 hidden rounded-xl border border-border bg-card px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
     id="main-menu"
   >
-    <ul class="gap-2 sm:flex">
+    <ul class="gap-1 sm:flex">
       {
         navLinks.map((link) => (
           <li class="relative">
             <a
-              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
+              class="nav-item relative block px-2.5 py-2 text-sm font-medium transition-all duration-300 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white"
               href={link.href}
             >
               {link.text}
@@ -53,7 +51,6 @@ const { siteLogo, navLinks } = Astro.props;
 </header>
 
 <script>
-  // Toggle mobile menu
   const button = document.querySelector("#menu-button");
   const menu = document.querySelector("#main-menu");
   const navItems = document.querySelectorAll("#main-menu > ul > li > a");
@@ -69,7 +66,6 @@ const { siteLogo, navLinks } = Astro.props;
     item?.addEventListener("click", toggleMenu);
   });
 
-  // Update navigation based on scroll position with Intersection Observer
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -84,14 +80,13 @@ const { siteLogo, navLinks } = Astro.props;
         }
       });
     },
-    { threshold: 0.5 },
+    { threshold: 0.4 },
   );
 
   document.querySelectorAll("section").forEach((section) => {
     observer.observe(section);
   });
 
-  // Cleanup observer
   document.onvisibilitychange = () => {
     if (document.visibilityState === "hidden") {
       observer.disconnect();

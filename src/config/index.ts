@@ -1,98 +1,132 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Alejandro Múnez — Mobile & Web Developer",
-  author: "Alejandro Múnez Cuntez",
+  title: "Zohair Saleem — Commercial Real Estate | NAI Advent",
+  author: "Zohair Saleem",
   description:
-    "Software Engineer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
+    "Commercial real estate advisory and brokerage services by Zohair Saleem at NAI Advent. Property valuations, purchaser representation, asset disposition, market intelligence, and consultancy.",
   lang: "en",
   siteLogo: "/alejandro-small.jpg",
   navLinks: [
+    { text: "Services", href: "#services" },
+    { text: "Listings", href: "#listings" },
+    { text: "Reports", href: "#reports" },
     { text: "Experience", href: "#experience" },
-    { text: "Projects", href: "#projects" },
     { text: "About", href: "#about" },
+    { text: "Contact", href: "#contact" },
   ],
   socialLinks: [
-    { text: "Twitter", href: "https://github.com/immois/astro-zen" },
-    { text: "LinkedIn", href: "https://github.com/immois/astro-zen" },
-    { text: "Github", href: "https://github.com/immois/astro-zen" },
-    { text: "Youtube", href: "https://github.com/immois/astro-zen" },
-    { text: "Dribbble", href: "https://github.com/immois/astro-zen" },
+    { text: "LinkedIn", href: "#" },
+    { text: "Email", href: "mailto:zohair@naiadvent.com" },
   ],
   socialImage: "/zen-og.png",
-  canonicalURL: "https://astro-zen.vercel.app",
+  canonicalURL: "https://naiadvent.com",
 };
 
 export const SITE_CONTENT: SiteContent = {
   hero: {
-    name: "Alejandro Múnez",
-    specialty: "Mobile & Web Developer",
+    name: "Zohair Saleem",
+    specialty: "Commercial Real Estate Advisor",
     summary:
-      "Developer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
-    email: "example@email.com",
+      "Senior advisor at NAI Advent — part of the world's largest managed network of independent commercial real estate firms. I deliver institutional-grade valuations, strategic acquisition advisory, and data-driven market intelligence for investors and occupiers across all commercial asset classes.",
+    email: "zohair@naiadvent.com",
   },
-  experience: [
+  services: [
     {
-      company: "Zalmart",
-      position: "Lead Android Developer",
-      startDate: "May 2018",
-      endDate: "Sept 2020",
-      summary: [
-        "Implemented advanced memory management and code optimization techniques, resulting in a reduction in application load time by 40% and a decrease in crashes by 25%. This significantly improved user experience and increased user retention by 20%.",
-        "I led a team of developers in building and integrating new features using Jetpack Android components such as LiveData and ViewModel. This enabled us to build scalable and maintainable applications, reducing the crash rate by 20% and speeding up the time to delivery of new features by 15%.",
-        "Integrated Google Pay for in-app purchases, resulting in a 35% increase in mobile transaction revenue. Additionally, implemented Firebase Analytics to gain insights into user behavior, enabling data-driven optimizations and a 30% increase in user retention.",
-      ],
+      name: "Property Valuations",
+      description:
+        "Independent, defensible valuations across all commercial asset classes — office, retail, industrial, and mixed-use. Delivered with rigorous methodology and transparent market evidence to support investment decisions, financing, and compliance.",
+      icon: "📊",
     },
     {
-      company: "Bankit",
-      position: "Mobile Developer",
-      startDate: "Feb 2017",
-      endDate: "May 2018",
-      summary: [
-        "I designed and developed a mobile application using Flutter, allowing it to be deployed on both Android and iOS with a single codebase. This reduced development time by 50% and maintenance costs by 30%, facilitating a consistent user experience on both platforms.",
-        "I integrated biometric authentication and data encryption, significantly improving the security of user data. This implementation resulted in a 40% increase in user trust and a 25% reduction in unauthorized access attempts.",
-      ],
+      name: "Purchaser Representation",
+      description:
+        "Strategic acquisition advisory for buyers and investors. From target identification and due diligence through to negotiation and close — your interests represented at every stage of the transaction.",
+      icon: "🤝",
     },
     {
-      company: "Driveer",
-      position: "Frontend Developer",
-      startDate: "Jun 2015",
-      endDate: "Oct 2016",
-      summary:
-        "Developed and integrated a real-time vehicle tracking system using WebSockets, improving accuracy and data update in the application. This functionality increased user satisfaction by 30% and reduced customer service inquiries by 25%.",
+      name: "Asset Disposition",
+      description:
+        "Comprehensive on-market and off-market disposition strategies designed to maximise asset value. We leverage deep buyer networks, precise market timing, and proven positioning expertise to deliver superior outcomes.",
+      icon: "🏢",
+    },
+    {
+      name: "Market Intel & Data",
+      description:
+        "Granular market intelligence, trend analysis, and benchmarking data to inform investment decisions. Backed by proprietary transaction databases, rental surveys, and ongoing field research across key commercial nodes.",
+      icon: "📈",
+    },
+    {
+      name: "Consultancy",
+      description:
+        "Strategic real estate consultancy for occupiers, investors, and developers. Portfolio rationalisation, highest-and-best-use studies, lease advisory, and investment strategy — tailored to your specific objectives.",
+      icon: "💡",
     },
   ],
-  projects: [
+  experience: [
     {
-      name: "Spotifu Music",
-      summary: "A music streaming app that emulates Spotify's core features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/spotifu.png",
+      company: "NAI Advent",
+      position: "Senior Commercial Real Estate Advisor",
+      startDate: "Jan 2020",
+      endDate: "Present",
+      summary: [
+        "Lead advisor on commercial property transactions across office, industrial, and retail sectors — completing significant deal volume across major Cape Town nodes since joining the firm.",
+        "Conduct independent property valuations for institutional clients, banks, and private investors using DCF, income capitalisation, and comparable sales methodologies.",
+        "Author of the firm's Quarterly Rent Survey and Quarterly Transaction Analysis & Market Insights publications, widely referenced by investors and industry stakeholders.",
+      ],
     },
     {
-      name: "Shopp App",
-      summary: "An e-commerce platform that replicates Shopify's key features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/shopify-clon.png",
+      company: "JLL South Africa",
+      position: "Commercial Property Broker",
+      startDate: "Mar 2016",
+      endDate: "Dec 2019",
+      summary: [
+        "Specialised in office and industrial leasing across major nodes, advising corporate occupiers on space strategy, lease restructuring, and market positioning.",
+        "Managed a portfolio of landlord mandates across substantial commercial GLA, consistently achieving above-market rental rates and minimising vacancy periods.",
+        "Built long-term client relationships with listed property funds, private equity houses, and institutional landlords.",
+      ],
     },
     {
-      name: "ClonTagram",
-      summary: "A social network that replicates the features of Instagram",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/clone-ig.png",
+      company: "Rode & Associates",
+      position: "Property Analyst",
+      startDate: "Jun 2014",
+      endDate: "Feb 2016",
+      summary:
+        "Contributed to South Africa's leading independent property research house — producing market reports, rental data analysis, and capitalisation rate studies across all commercial property sectors. Research referenced by major financial institutions and property funds.",
+    },
+  ],
+  listings: [
+    {
+      name: "Century City Office Park",
+      address: "Century City, Cape Town",
+      type: "Office",
+      size: "1,850 sqm",
+      price: "R 485 / sqm",
+      status: "available",
+    },
+    {
+      name: "Parow Industrial Estate",
+      address: "Parow, Cape Town",
+      type: "Industrial",
+      size: "4,200 sqm",
+      price: "R 78 / sqm",
+      status: "available",
+    },
+    {
+      name: "Claremont Retail Strip",
+      address: "Claremont, Cape Town",
+      type: "Retail",
+      size: "620 sqm",
+      price: "R 320 / sqm",
+      status: "under-offer",
     },
   ],
   about: {
-    description: `
-      Hi, I’m Alejandro Múnez, a passionate Mobile and Web Developer with a knack for crafting seamless digital experiences. With a strong background in both Android and iOS development, as well as front-end web technologies, I thrive in the intersection where creativity meets technology.
+    description: `Zohair Saleem is a senior commercial real estate advisor at NAI Advent — one of South Africa's most respected commercial property brokerages and part of the NAI Global network, the world's largest managed network of independent commercial real estate firms spanning over 400 offices across 60 countries.
 
-      Over the years, I’ve honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what’s possible. My projects range from innovative mobile applications to responsive web designs, all with a focus on performance, security, and scalability.
-    `,
+With over a decade of experience across brokerage, valuation, and market research, Zohair brings a rigorous, data-driven approach to every mandate. His clients include listed property funds, private equity investors, corporate occupiers, and high-net-worth individuals seeking trusted advisory on acquisitions, disposals, and portfolio strategy.
+
+NAI Advent operates across all major commercial property sectors — office, industrial, retail, and mixed-use — providing clients with integrated advisory services backed by the resources and reach of a global network.`,
     image: "/alejandro-big.jpg",
   },
 };
-
-// #5755ff

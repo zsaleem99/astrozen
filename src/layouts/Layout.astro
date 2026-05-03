@@ -46,9 +46,71 @@ const ogImgUrl = canonicalURL + socialImage;
   </head>
   <body class="bg-black font-sans">
     <Header siteLogo={siteLogo} navLinks={navLinks} />
-    <main class="mx-auto max-w-3xl px-5">
+    <main class="mx-auto max-w-6xl px-5">
       <slot />
     </main>
     <Footer author={author} socialLinks={socialLinks} />
+
+    <script>
+      // Global modal system
+      document.addEventListener("click", (e) => {
+        const target = e.target as HTMLElement;
+
+        // Open modal
+        const trigger = target.closest("[data-modal-target]") as HTMLElement | null;
+        if (trigger) {
+          const modalId = trigger.getAttribute("data-modal-target");
+          const modal = modalId ? document.getElementById(modalId) : null;
+          if (modal) {
+            // Pre-fill service field if specified
+            const service = trigger.getAttribute("data-service");
+            if (service) {
+              const serviceInput = modal.querySelector<HTMLInputElement>("[name='service']");
+              if (serviceInput) serviceInput.value = service;
+              const serviceDisplay = modal.querySelector("[data-service-display]");
+              if (serviceDisplay) serviceDisplay.textContent = service;
+            }
+            // Pre-fill report field if specified
+            const report = trigger.getAttribute("data-report");
+            if (report) {
+              const reportInput = modal.querySelector<HTMLInputElement>("[name='report']");
+              if (reportInput) reportInput.value = report;
+              const reportDisplay = modal.querySelector("[data-report-display]");
+              if (reportDisplay) reportDisplay.textContent = report;
+            }
+            modal.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+          }
+          return;
+        }
+
+        // Close via close button
+        const closeBtn = target.closest("[data-modal-close]");
+        if (closeBtn) {
+          const modal = closeBtn.closest(".modal-overlay") as HTMLElement | null;
+          if (modal) {
+            modal.classList.add("hidden");
+            document.body.style.overflow = "";
+          }
+          return;
+        }
+
+        // Close on backdrop click
+        if ((target as HTMLElement).classList.contains("modal-overlay")) {
+          (target as HTMLElement).classList.add("hidden");
+          document.body.style.overflow = "";
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          document.querySelectorAll<HTMLElement>(".modal-overlay:not(.hidden)").forEach((modal) => {
+            modal.classList.add("hidden");
+            document.body.style.overflow = "";
+          });
+        }
+      });
+    </script>
   </body>
 </html>

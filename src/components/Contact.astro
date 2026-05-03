@@ -1,0 +1,150 @@
+---
+import Section from "./Section.astro";
+---
+
+<Section text="Get in Touch" href="contact">
+  <div class="grid gap-14 lg:grid-cols-2">
+    <!-- Left: copy -->
+    <div>
+      <p class="mb-8 text-base leading-relaxed text-neutral">
+        Whether you're looking to acquire, dispose of, or receive an
+        independent valuation on a commercial property — or simply want to
+        understand where the market is — reach out and we'll respond promptly.
+      </p>
+
+      <div class="space-y-6">
+        <div>
+          <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-primary">
+            Direct Contact
+          </p>
+          <p class="text-base text-white">Zohair Saleem</p>
+          <a
+            href="mailto:zohair@naiadvent.com"
+            class="text-sm text-neutral transition-colors hover:text-primary"
+          >
+            zohair@naiadvent.com
+          </a>
+        </div>
+
+        <div>
+          <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-primary">
+            Office
+          </p>
+          <p class="text-sm text-neutral">NAI Advent</p>
+          <p class="text-sm text-neutral">Cape Town, South Africa</p>
+        </div>
+
+        <div>
+          <p class="mb-1 text-xs font-semibold uppercase tracking-widest text-primary">
+            Network
+          </p>
+          <p class="text-sm text-neutral">
+            Part of NAI Global — 400+ offices across 60 countries
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="rounded-2xl border border-border bg-card p-8">
+      <!--
+        ACTION: Replace YOUR_FORM_ID with your Formspree form ID.
+        Sign up free at https://formspree.io — create a form and paste the ID here.
+      -->
+      <form
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+        class="space-y-5"
+      >
+        <input
+          type="hidden"
+          name="_subject"
+          value="New Enquiry — NAI Advent"
+        />
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label class="form-label" for="c-name">Full Name *</label>
+            <input
+              class="form-input"
+              type="text"
+              id="c-name"
+              name="name"
+              placeholder="John Smith"
+              required
+            />
+          </div>
+          <div>
+            <label class="form-label" for="c-company">Company</label>
+            <input
+              class="form-input"
+              type="text"
+              id="c-company"
+              name="company"
+              placeholder="Acme Holdings"
+            />
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label class="form-label" for="c-email">Email Address *</label>
+            <input
+              class="form-input"
+              type="email"
+              id="c-email"
+              name="email"
+              placeholder="john@example.com"
+              required
+            />
+          </div>
+          <div>
+            <label class="form-label" for="c-phone">Phone Number</label>
+            <input
+              class="form-input"
+              type="tel"
+              id="c-phone"
+              name="phone"
+              placeholder="+27 21 000 0000"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label" for="c-service">Service of Interest *</label>
+          <select class="form-input" id="c-service" name="service" required>
+            <option value="">Select a service...</option>
+            <option value="Property Valuation">Property Valuation</option>
+            <option value="Purchaser Representation">Purchaser Representation</option>
+            <option value="Asset Disposition">Asset Disposition</option>
+            <option value="Market Intel & Data">Market Intel & Data</option>
+            <option value="Consultancy">Consultancy</option>
+            <option value="General Enquiry">General Enquiry</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="form-label" for="c-message">Message *</label>
+          <textarea
+            class="form-input min-h-[130px] resize-y"
+            id="c-message"
+            name="message"
+            placeholder="Tell us about your property, requirements, or any questions you have..."
+            required
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          class="w-full rounded-full bg-primary py-3.5 text-sm font-semibold text-black transition-colors hover:bg-primary-dark"
+        >
+          Send Message
+        </button>
+
+        <p class="text-center text-xs text-neutral">
+          We aim to respond within one business day.
+        </p>
+      </form>
+    </div>
+  </div>
+</Section>
