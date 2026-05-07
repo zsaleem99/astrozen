@@ -28,7 +28,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "Zohair Saleem",
     specialty: "Commercial Real Estate Advisor",
     summary:
-      "Senior advisor at NAI Advent — part of the world's largest managed network of independent commercial real estate firms. I deliver institutional-grade valuations, strategic acquisition advisory, and data-driven market intelligence for investors and occupiers across all commercial asset classes.",
+      "Commercial real estate advisor at NAI Advent with a focus on multifamily and land. I work with investors, owners, and developers — providing property valuations, acquisition advisory, asset disposition, and market intelligence across all commercial asset classes.",
     email: "zohair@naiadvent.com",
   },
   services: [
