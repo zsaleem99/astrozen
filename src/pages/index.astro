@@ -2,16 +2,22 @@
 import { SITE_CONTENT } from "@config";
 import Hero from "@components/Hero.astro";
 import Layout from "@layouts/Layout.astro";
+import Services from "@components/Services.astro";
+import Listings from "@components/Listings.astro";
+import Reports from "@components/Reports.astro";
 import Experience from "@components/Experience.astro";
-import Projects from "@components/Projects.astro";
 import About from "@components/About.astro";
+import Contact from "@components/Contact.astro";
 
 import "../styles/global.css";
 ---
 
 <Layout>
   <Hero {...SITE_CONTENT.hero} />
+  <Services services={SITE_CONTENT.services} />
+  <Listings listings={SITE_CONTENT.listings} />
+  <Reports />
   <Experience experience={SITE_CONTENT.experience} />
-  <Projects projects={SITE_CONTENT.projects} />
-  <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
+  <About {...SITE_CONTENT.about} />
+  <Contact />
 </Layout>
