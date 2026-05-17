@@ -97,6 +97,7 @@ export const SITE_CONTENT: SiteContent = {
       size: "32 Units",
       price: "$11,500,000",
       status: "available",
+      image: "/arbour-lake-townhomes.png",
     },
   ],
   about: {
