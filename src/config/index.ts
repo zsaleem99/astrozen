@@ -16,7 +16,7 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "Contact", href: "#contact" },
   ],
   socialLinks: [
-    { text: "LinkedIn", href: "#" },
+    { text: "LinkedIn", href: "https://www.linkedin.com/in/zohairsaleem/" },
     { text: "Email", href: "mailto:zohair@naiadvent.com" },
   ],
   socialImage: "/zen-og.png",
