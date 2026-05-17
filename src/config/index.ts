@@ -28,7 +28,7 @@ export const SITE_CONTENT: SiteContent = {
     name: "Zohair Saleem",
     specialty: "Commercial Real Estate Advisor",
     summary:
-      "Senior advisor at NAI Advent — part of the world's largest managed network of independent commercial real estate firms. I deliver institutional-grade valuations, strategic acquisition advisory, and data-driven market intelligence for investors and occupiers across all commercial asset classes.",
+      "Commercial real estate advisor at NAI Advent with a focus on multifamily and land. I work with investors, owners, and developers — providing property valuations, acquisition advisory, asset disposition, and market intelligence.",
     email: "zohair@naiadvent.com",
   },
   services: [
@@ -66,65 +66,43 @@ export const SITE_CONTENT: SiteContent = {
   experience: [
     {
       company: "NAI Advent",
-      position: "Senior Commercial Real Estate Advisor",
-      startDate: "Jan 2020",
+      position: "Associate, Capital Markets",
+      startDate: "Aug 2025",
       endDate: "Present",
       summary: [
-        "Lead advisor on commercial property transactions across office, industrial, and retail sectors — completing significant deal volume across major Cape Town nodes since joining the firm.",
-        "Conduct independent property valuations for institutional clients, banks, and private investors using DCF, income capitalisation, and comparable sales methodologies.",
-        "Author of the firm's Quarterly Rent Survey and Quarterly Transaction Analysis & Market Insights publications, widely referenced by investors and industry stakeholders.",
+        "Support the origination and execution of investment sales transactions involving income-producing commercial properties, including multifamily, retail, and mixed-use assets.",
+        "Conduct property-level financial analysis including NOI underwriting, cap rate benchmarking, and cash-on-cash return modeling to support client advisory and deal positioning.",
+        "Prepare offering memorandums, broker opinion of value (BOV) packages, and investment summaries for prospective buyers and institutional clients.",
+        "Identify and qualify acquisition targets and potential vendors through proactive market canvassing, ownership research, and relationship development.",
+        "Monitor market activity including comparable sales, cap rate trends, and investor sentiment across Calgary's commercial property sectors.",
       ],
     },
     {
-      company: "JLL South Africa",
-      position: "Commercial Property Broker",
-      startDate: "Mar 2016",
-      endDate: "Dec 2019",
+      company: "Colliers",
+      position: "Analyst",
+      startDate: "Oct 2023",
+      endDate: "Jun 2025",
       summary: [
-        "Specialised in office and industrial leasing across major nodes, advising corporate occupiers on space strategy, lease restructuring, and market positioning.",
-        "Managed a portfolio of landlord mandates across substantial commercial GLA, consistently achieving above-market rental rates and minimising vacancy periods.",
-        "Built long-term client relationships with listed property funds, private equity houses, and institutional landlords.",
+        "Conducted in-depth market research and trend analysis on Calgary's office sector, with exposure to multifamily and retail asset classes.",
+        "Contributed to quarterly market reports by collecting, verifying, and interpreting lease comps, availabilities, and property-level data.",
+        "Supported brokers in identifying potential leads and positioning properties for maximum visibility and strategic advantage.",
       ],
-    },
-    {
-      company: "Rode & Associates",
-      position: "Property Analyst",
-      startDate: "Jun 2014",
-      endDate: "Feb 2016",
-      summary:
-        "Contributed to South Africa's leading independent property research house — producing market reports, rental data analysis, and capitalisation rate studies across all commercial property sectors. Research referenced by major financial institutions and property funds.",
     },
   ],
   listings: [
     {
-      name: "Century City Office Park",
-      address: "Century City, Cape Town",
-      type: "Office",
-      size: "1,850 sqm",
-      price: "R 485 / sqm",
+      name: "VIVA Homes — Arbour Lake Townhomes",
+      address: "Calgary, AB",
+      type: "Multifamily",
+      size: "32 Units",
+      price: "$11,500,000",
       status: "available",
-    },
-    {
-      name: "Parow Industrial Estate",
-      address: "Parow, Cape Town",
-      type: "Industrial",
-      size: "4,200 sqm",
-      price: "R 78 / sqm",
-      status: "available",
-    },
-    {
-      name: "Claremont Retail Strip",
-      address: "Claremont, Cape Town",
-      type: "Retail",
-      size: "620 sqm",
-      price: "R 320 / sqm",
-      status: "under-offer",
     },
   ],
   about: {
-    description: `Zohair Saleem is a senior commercial real estate advisor at NAI Advent — one of South Africa's most respected commercial property brokerages and part of the NAI Global network, the world's largest managed network of independent commercial real estate firms spanning over 400 offices across 60 countries.
+    description: `Zohair Saleem is a commercial real estate advisor at NAI Advent, one of the world's largest managed networks of independent commercial real estate firms spanning over 400 offices across 60 countries.
 
-With over a decade of experience across brokerage, valuation, and market research, Zohair brings a rigorous, data-driven approach to every mandate. His clients include listed property funds, private equity investors, corporate occupiers, and high-net-worth individuals seeking trusted advisory on acquisitions, disposals, and portfolio strategy.
+With multiple years of experience across brokerage, valuation, and market research, Zohair brings a rigorous, data-driven approach to every mandate. His clients include listed property funds, private equity investors, corporate occupiers, and high-net-worth individuals seeking trusted advisory on acquisitions, disposals, and portfolio strategy.
 
 NAI Advent operates across all major commercial property sectors — office, industrial, retail, and mixed-use — providing clients with integrated advisory services backed by the resources and reach of a global network.`,
     image: "/alejandro-big.jpg",

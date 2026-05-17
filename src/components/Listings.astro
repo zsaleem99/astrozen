@@ -9,6 +9,7 @@ interface Props {
 const { listings } = Astro.props;
 
 const typeIcons: Record<string, string> = {
+  Multifamily: "🏘️",
   Office: "🏢",
   Industrial: "🏭",
   Retail: "🏪",
@@ -19,8 +20,8 @@ const typeIcons: Record<string, string> = {
 
 <Section text="Current Listings" href="listings">
   <p class="mb-10 -mt-6 max-w-2xl text-base text-neutral">
-    A selection of current on-market commercial properties available for lease
-    and sale. Contact us to arrange inspections or receive full information packs.
+    A selection of current on-market commercial properties available for sale.
+    Contact us to receive information packages or to discuss opportunities further.
   </p>
 
   <!-- On-market listings grid -->
@@ -60,7 +61,7 @@ const typeIcons: Record<string, string> = {
                 <p class="text-sm font-medium text-white">{listing.size}</p>
               </div>
               <div>
-                <p class="text-xs text-neutral/70">Asking Rent</p>
+                <p class="text-xs text-neutral/70">Asking Price</p>
                 <p class="text-sm font-medium text-primary">{listing.price}</p>
               </div>
             </div>
