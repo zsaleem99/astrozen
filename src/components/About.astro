@@ -1,6 +1,5 @@
 ---
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
 import type { AboutProps } from "@types";
 
 type Props = AboutProps;
@@ -28,17 +27,6 @@ const paragraphs = description
 
     <!-- Right: headshot + credentials -->
     <div class="flex flex-col gap-4">
-      <!-- Headshot -->
-      <div class="overflow-hidden rounded-2xl border border-border">
-        <Image
-          src="/zohair.png"
-          width={400}
-          height={500}
-          alt="Zohair Saleem"
-          class="w-full object-cover object-top"
-        />
-      </div>
-
       <!-- Credentials -->
       <div class="rounded-2xl border border-border bg-card p-6">
         <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
