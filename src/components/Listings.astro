@@ -48,6 +48,17 @@ const typeIcons: Record<string, string> = {
             </span>
           </div>
 
+          <!-- Property image -->
+          {listing.image && (
+            <div class="aspect-video w-full overflow-hidden">
+              <img
+                src={listing.image}
+                alt={listing.name}
+                class="h-full w-full object-cover"
+              />
+            </div>
+          )}
+
           <!-- Property details -->
           <div class="flex flex-1 flex-col p-6">
             <h3 class="mb-1 font-serif text-lg font-semibold text-white">

@@ -44,6 +44,7 @@ export interface ListingProps {
   size: string;
   price: string;
   status: "available" | "under-offer";
+  image?: string;
 }
 
 export interface AboutProps {
