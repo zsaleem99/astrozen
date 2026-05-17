@@ -1,5 +1,6 @@
 ---
 import Section from "./Section.astro";
+import { Image } from "astro:assets";
 import type { AboutProps } from "@types";
 
 type Props = AboutProps;
@@ -25,12 +26,22 @@ const paragraphs = description
       </div>
     </div>
 
-    <!-- Right: NAI Advent credentials panel -->
+    <!-- Right: headshot + credentials -->
     <div class="flex flex-col gap-4">
+      <!-- Headshot -->
+      <div class="overflow-hidden rounded-2xl border border-border">
+        <Image
+          src="/zohair.png"
+          width={400}
+          height={500}
+          alt="Zohair Saleem"
+          class="w-full object-cover object-top"
+        />
+      </div>
+
+      <!-- Credentials -->
       <div class="rounded-2xl border border-border bg-card p-6">
-        <p
-          class="mb-3 text-xs font-semibold uppercase tracking-widest text-primary"
-        >
+        <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
           NAI Global Network
         </p>
         <p class="text-sm leading-relaxed text-neutral">
@@ -40,14 +51,12 @@ const paragraphs = description
       </div>
 
       <div class="rounded-2xl border border-border bg-card p-6">
-        <p
-          class="mb-3 text-xs font-semibold uppercase tracking-widest text-primary"
-        >
+        <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-primary">
           Asset Classes
         </p>
         <ul class="space-y-1.5">
           {
-            ["Office", "Industrial", "Retail", "Mixed-Use", "Land"].map(
+            ["Multifamily", "Office", "Industrial", "Retail", "Land"].map(
               (cls) => (
                 <li class="flex items-center gap-2 text-sm text-neutral">
                   <span class="h-1.5 w-1.5 rounded-full bg-primary/60" />
@@ -55,24 +64,6 @@ const paragraphs = description
                 </li>
               ),
             )
-          }
-        </ul>
-      </div>
-
-      <div class="rounded-2xl border border-border bg-card p-6">
-        <p
-          class="mb-3 text-xs font-semibold uppercase tracking-widest text-primary"
-        >
-          Memberships & Affiliations
-        </p>
-        <ul class="space-y-1.5">
-          {
-            ["NAI Global", "SAPOA", "SACSC"].map((org) => (
-              <li class="flex items-center gap-2 text-sm text-neutral">
-                <span class="h-1.5 w-1.5 rounded-full bg-primary/60" />
-                {org}
-              </li>
-            ))
           }
         </ul>
       </div>
